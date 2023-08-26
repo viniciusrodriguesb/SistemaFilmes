@@ -1,6 +1,7 @@
 ﻿using FilmProject.DTO;
 using FilmProject.DTO.UsuarioDTO;
 using FilmProject.Models;
+using Microsoft.AspNetCore.Mvc.ActionConstraints;
 using Microsoft.EntityFrameworkCore;
 using System.Data.Common;
 using System.Transactions;
@@ -71,6 +72,7 @@ namespace FilmProject.Services
                                .Where(x => x.dataExclusao == null)
                                .Select(l => new UsuarioResponse
                                {
+                                   Id = l.Id,
                                    Nome = l.Nome,
                                    Sobrenome = l.Sobrenome,
                                    Email = l.Email,
@@ -84,6 +86,53 @@ namespace FilmProject.Services
             {
                 throw new Exception("Erro ao listar usuários", e);
             }
+        }
+
+        public async Task<UsuarioResponse> EditarUsuarios(UsuarioRequest usuario, int Id)
+        {
+            var verificaExistencia = await _dbContext.UsuarioModel
+                                    .AsNoTracking()
+                                    .Where(x => x.dataExclusao == null && x.Id == Id)
+                                    .FirstOrDefaultAsync();
+
+            if (verificaExistencia is not null)
+            {
+                verificaExistencia.Nome = usuario.Nome;
+                verificaExistencia.Sobrenome = usuario.Sobrenome;
+                verificaExistencia.Telefone = usuario.Telefone;
+                verificaExistencia.Email = usuario.Email;
+                verificaExistencia.Senha = usuario.Senha;
+
+                await _dbContext.SaveChangesAsync();
+
+                return new UsuarioResponse()
+                {
+                    Id = verificaExistencia.Id,
+                    Nome = verificaExistencia.Nome,
+                    Sobrenome = verificaExistencia.Sobrenome,
+                    Telefone = verificaExistencia.Telefone,
+                    Email = verificaExistencia.Email
+                };
+            }
+            return new UsuarioResponse();
+        }
+
+        public async Task<bool> DeletarUsuario(int Id)
+        {
+            bool deletou = false;
+
+            var result = await _dbContext.UsuarioModel
+                                    .AsNoTracking()
+                                    .FirstOrDefaultAsync(x => x.Id == Id);
+
+            if (result is not null)
+            {
+                _dbContext.UsuarioModel.Remove(result);
+                await _dbContext.SaveChangesAsync();
+
+                return deletou;
+            }
+            return deletou = true;
         }
 
     }
