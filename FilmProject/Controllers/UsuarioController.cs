@@ -1,10 +1,14 @@
 ﻿using FilmProject.DTO;
 using FilmProject.DTO.UsuarioDTO;
 using FilmProject.Services;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 
 namespace FilmProject.Controllers
 {
+    [Authorize]
+    [ApiController]
+    [Route("[controller]")]
     public class UsuarioController : Controller
     {
         private readonly UsuarioService _usuarioService;

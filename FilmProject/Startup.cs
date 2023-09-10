@@ -1,7 +1,11 @@
 ﻿using FilmProject.Models;
 using FilmProject.Services;
+using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.Extensions.Configuration;
+using Microsoft.IdentityModel.Tokens;
 using Microsoft.OpenApi.Models;
+using System.Text;
 
 namespace FilmProject
 {
@@ -37,6 +41,21 @@ namespace FilmProject
                 options.UseInMemoryDatabase("ApiDatabase"));
 
             services.AddServices();
+
+            services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme)
+                    .AddJwtBearer(options =>
+                    {
+                        options.TokenValidationParameters = new TokenValidationParameters
+                        {
+                            ValidateIssuer = true,
+                            ValidateAudience = true,
+                            ValidateLifetime = true,
+                            ValidateIssuerSigningKey = true,
+                            ValidIssuer = "SeuIssuer",
+                            ValidAudience = "SeuAudience",
+                            IssuerSigningKey = new SymmetricSecurityKey(Encoding.UTF8.GetBytes("key_secret"))
+                        };
+                    });
         }
 
         public void Configure(WebApplication app)
