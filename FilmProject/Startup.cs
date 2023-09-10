@@ -36,7 +36,7 @@ namespace FilmProject
             services.AddDbContext<DbContextBase>(options =>
                 options.UseInMemoryDatabase("ApiDatabase"));
 
-            services.AddScoped<UsuarioService>();
+            services.AddServices();
         }
 
         public void Configure(WebApplication app)
