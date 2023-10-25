@@ -1,12 +1,10 @@
 ﻿using FilmProject.DTO;
 using FilmProject.DTO.UsuarioDTO;
 using FilmProject.Services;
-using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 
 namespace FilmProject.Controllers
 {
-    [Authorize]
     [ApiController]
     [Route("[controller]")]
     public class UsuarioController : Controller
@@ -71,7 +69,7 @@ namespace FilmProject.Controllers
             }
         }
 
-        [HttpDelete("v1/deletar")]
+        [HttpDelete("v1/deletar/{id}")]
         public async Task<ActionResult> DeletarUsuario(int id)
         {
             try

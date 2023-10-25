@@ -1,4 +1,6 @@
-﻿namespace FilmProject.Services
+﻿using Microsoft.AspNetCore.Authentication.JwtBearer;
+
+namespace FilmProject.Services
 {
     public static class ConfigureServices
     {

@@ -40,3 +40,12 @@ C:\Users\vinic\source\repos\FilmProject\FilmProject\obj\Debug\net6.0\refint\Film
 C:\Users\vinic\source\repos\FilmProject\FilmProject\obj\Debug\net6.0\FilmProject.pdb
 C:\Users\vinic\source\repos\FilmProject\FilmProject\obj\Debug\net6.0\FilmProject.genruntimeconfig.cache
 C:\Users\vinic\source\repos\FilmProject\FilmProject\obj\Debug\net6.0\ref\FilmProject.dll
+C:\Users\vinic\source\repos\FilmProject\FilmProject\bin\Debug\net6.0\Microsoft.AspNetCore.Authentication.JwtBearer.dll
+C:\Users\vinic\source\repos\FilmProject\FilmProject\bin\Debug\net6.0\Microsoft.IdentityModel.JsonWebTokens.dll
+C:\Users\vinic\source\repos\FilmProject\FilmProject\bin\Debug\net6.0\Microsoft.IdentityModel.Logging.dll
+C:\Users\vinic\source\repos\FilmProject\FilmProject\bin\Debug\net6.0\Microsoft.IdentityModel.Protocols.dll
+C:\Users\vinic\source\repos\FilmProject\FilmProject\bin\Debug\net6.0\Microsoft.IdentityModel.Protocols.OpenIdConnect.dll
+C:\Users\vinic\source\repos\FilmProject\FilmProject\bin\Debug\net6.0\Microsoft.IdentityModel.Tokens.dll
+C:\Users\vinic\source\repos\FilmProject\FilmProject\bin\Debug\net6.0\System.IdentityModel.Tokens.Jwt.dll
+C:\Users\vinic\source\repos\FilmProject\FilmProject\bin\Debug\net6.0\System.Security.Permissions.dll
+C:\Users\vinic\source\repos\FilmProject\FilmProject\bin\Debug\net6.0\Newtonsoft.Json.dll

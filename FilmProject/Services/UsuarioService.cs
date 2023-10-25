@@ -1,10 +1,8 @@
 ﻿using FilmProject.DTO;
 using FilmProject.DTO.UsuarioDTO;
 using FilmProject.Models;
-using Microsoft.AspNetCore.Mvc.ActionConstraints;
 using Microsoft.EntityFrameworkCore;
 using System.Data.Common;
-using System.Transactions;
 
 namespace FilmProject.Services
 {
@@ -12,7 +10,6 @@ namespace FilmProject.Services
     {
         #region Construtor
         private readonly DbContextBase _dbContext;
-
         public UsuarioService(
             DbContextBase dbContext)
         {
@@ -58,9 +55,24 @@ namespace FilmProject.Services
             }
             else
             {
-                retorno.Mensagem = "E-mail já está em uso";
+                retorno.Mensagem = "Usuário com dados já existentes.";
             }
             return retorno;
+        }
+
+        public async Task<UsuarioModel?> BuscarUsuario(string email, string senha)
+        {
+            var usuario = await _dbContext.UsuarioModel
+                                .AsNoTracking()
+                                .Where(u => u.Email.ToLower() == email.ToLower() &&
+                                            u.Senha.ToLower() == senha.ToLower())
+                                .Select(u => new UsuarioModel()
+                                {
+                                    Email = u.Email,
+                                    Senha = u.Senha
+                                }).FirstOrDefaultAsync();
+
+            return usuario != null ? usuario : new UsuarioModel();
         }
 
         public async Task<List<UsuarioResponse>> ListarUsuarios()
@@ -103,6 +115,7 @@ namespace FilmProject.Services
                 verificaExistencia.Email = usuario.Email;
                 verificaExistencia.Senha = usuario.Senha;
 
+                _dbContext.Update(verificaExistencia);
                 await _dbContext.SaveChangesAsync();
 
                 return new UsuarioResponse()

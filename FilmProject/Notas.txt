@@ -1,0 +1,4 @@
+//TODO
+1.Autenticação dois fatores --> SMS/EMAIL;
+2.Avaliação do usuário;
+3.Histórico de mudanças do usuário;
