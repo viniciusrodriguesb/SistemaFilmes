@@ -1,4 +1,5 @@
-﻿using Microsoft.EntityFrameworkCore;
+﻿using FilmProject.Models.Avaliacao;
+using Microsoft.EntityFrameworkCore;
 
 namespace FilmProject.Models
 {
@@ -8,9 +9,19 @@ namespace FilmProject.Models
         : base(options) { }
 
         public virtual DbSet<UsuarioModel> UsuarioModel { get; set; }
+        public virtual DbSet<TiposAvaliacaoModel> TiposAvaliacaoModel { get; set; }
+        public virtual DbSet<AvaliacaoModel> AvaliacaoModel { get; set; }
 
-        //Configurar mapeamentos caso o banco fosse SQL
-        //protected override void OnModelCreating(ModelBuilder modelBuilder)
-        //{ }
+        protected override void OnModelCreating(ModelBuilder modelBuilder)
+        {
+
+            modelBuilder.Entity<TiposAvaliacaoModel>().HasData(
+            new TiposAvaliacaoModel { TipoAvaliacao = 1, noAvaliacao = "Muito satisfeito" },
+            new TiposAvaliacaoModel { TipoAvaliacao = 2, noAvaliacao = "Satisfeito" },
+            new TiposAvaliacaoModel { TipoAvaliacao = 3, noAvaliacao = "Neutro" },
+            new TiposAvaliacaoModel { TipoAvaliacao = 4, noAvaliacao = "Insatisfeito" },
+            new TiposAvaliacaoModel { TipoAvaliacao = 5, noAvaliacao = "Muito insatisfeito" });
+
+        }
     }
 }

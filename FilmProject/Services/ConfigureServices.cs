@@ -7,6 +7,7 @@ namespace FilmProject.Services
         public static void AddServices(this IServiceCollection services)
         {
             services.AddScoped<UsuarioService>();
+            services.AddScoped<AvaliacaoService>();
         }
     }
 }
