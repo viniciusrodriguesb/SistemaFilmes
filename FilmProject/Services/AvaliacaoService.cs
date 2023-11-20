@@ -16,6 +16,17 @@ namespace FilmProject.Services
         }
         #endregion
 
+        public List<TiposAvaliacaoModel> listarTipos()
+        {
+            var teste = _context.TiposAvaliacaoModel.AsNoTracking()
+                        .Select(item => new TiposAvaliacaoModel
+                        {
+                            noAvaliacao = item.noAvaliacao
+                        }).ToList();
+
+            return teste;
+        }
+
         public async Task<bool> GravarAvaliacaoUsuario(AvaliacaoUsuarioRequest avaliacaoUsuario)
         {
             bool registrado = false;
@@ -31,7 +42,7 @@ namespace FilmProject.Services
                     {
                         _context.Add(new AvaliacaoModel
                         {
-                            tipoAvaliacaoNavigation = tipoAvaliacao
+                            //tipoAvaliacaoNavigation = tipoAvaliacao
                         });
 
                         await _context.SaveChangesAsync();

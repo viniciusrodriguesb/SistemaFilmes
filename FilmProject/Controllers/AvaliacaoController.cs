@@ -16,7 +16,7 @@ namespace FilmProject.Controllers
         [HttpGet("listar-tipo-avaliacao")]
         public async Task<ActionResult> ListarTiposAvaliacao()
         {
-            var result = await _avaliacaoService.ListarTiposAvaliacao();
+            var result = _avaliacaoService.listarTipos();
 
             if (result is not null)
                 return StatusCode(200, result);

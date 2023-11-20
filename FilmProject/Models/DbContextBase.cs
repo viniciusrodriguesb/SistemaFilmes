@@ -1,4 +1,5 @@
 ﻿using FilmProject.Models.Avaliacao;
+using FilmProject.Models.Mappings;
 using Microsoft.EntityFrameworkCore;
 
 namespace FilmProject.Models
@@ -15,13 +16,11 @@ namespace FilmProject.Models
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
 
-            modelBuilder.Entity<TiposAvaliacaoModel>().HasData(
-            new TiposAvaliacaoModel { TipoAvaliacao = 1, noAvaliacao = "Muito satisfeito" },
-            new TiposAvaliacaoModel { TipoAvaliacao = 2, noAvaliacao = "Satisfeito" },
-            new TiposAvaliacaoModel { TipoAvaliacao = 3, noAvaliacao = "Neutro" },
-            new TiposAvaliacaoModel { TipoAvaliacao = 4, noAvaliacao = "Insatisfeito" },
-            new TiposAvaliacaoModel { TipoAvaliacao = 5, noAvaliacao = "Muito insatisfeito" });
-
+            modelBuilder.ApplyConfiguration(new UsuarioMap());
+            modelBuilder.ApplyConfiguration(new FilmesMap());
+            modelBuilder.ApplyConfiguration(new GeneroMap());
+            modelBuilder.ApplyConfiguration(new AvaliacaoMap());
+            modelBuilder.ApplyConfiguration(new TipoAvaliacaoMap());
         }
     }
 }

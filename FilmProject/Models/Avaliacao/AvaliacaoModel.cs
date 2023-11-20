@@ -1,15 +1,19 @@
-﻿using System.ComponentModel.DataAnnotations;
+﻿using FilmProject.Models.Filmes;
+using System.ComponentModel.DataAnnotations;
 
 namespace FilmProject.Models.Avaliacao
 {
     public class AvaliacaoModel
     {
-        [Key]
         public int Id { get; set; }
+        public int? UsuarioId { get; set; }
+        public int? FilmeId { get; set; }
+        public int TipoAvaliacaoId { get; set; }
 
-        [Required]
-        public string DescricaoMensagem { get; set; } = string.Empty;
-
-        public TiposAvaliacaoModel tipoAvaliacaoNavigation { get; set; }
+        //Relacionamentos
+        public virtual UsuarioModel UsuarioNavigation { get; set; }
+        public virtual ICollection<FilmeModel> FilmeNavigation { get; set; }
+        public virtual FilmeModel FilmeNavigations { get; set; }
+        public virtual TiposAvaliacaoModel TipoAvaliacaoNavigation { get; set; }
     }
 }

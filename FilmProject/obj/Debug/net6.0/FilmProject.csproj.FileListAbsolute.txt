@@ -49,3 +49,6 @@ C:\Users\vinic\source\repos\FilmProject\FilmProject\bin\Debug\net6.0\Microsoft.I
 C:\Users\vinic\source\repos\FilmProject\FilmProject\bin\Debug\net6.0\System.IdentityModel.Tokens.Jwt.dll
 C:\Users\vinic\source\repos\FilmProject\FilmProject\bin\Debug\net6.0\System.Security.Permissions.dll
 C:\Users\vinic\source\repos\FilmProject\FilmProject\bin\Debug\net6.0\Newtonsoft.Json.dll
+C:\Users\vinic\source\repos\FilmProject\FilmProject\bin\Debug\net6.0\libman.json
+C:\Users\vinic\source\repos\FilmProject\FilmProject\bin\Debug\net6.0\MySqlConnector.dll
+C:\Users\vinic\source\repos\FilmProject\FilmProject\bin\Debug\net6.0\Pomelo.EntityFrameworkCore.MySql.dll

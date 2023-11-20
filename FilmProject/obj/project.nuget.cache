@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "dgSpecHash": "s4K8vASvqeheesSbUEyhVDwZLt/KtHG4dpMLUNsddCJEgeNQce0XFyC3bVMYXTu6DguZWde2cMtPme7A3L0gkQ==",
+  "dgSpecHash": "3xrNdqWvlixA4RACgftUE54tMkKC/7PWeOnWaGkrKPwq4nUkB49cg3LyzNR85DCDNdmjDNvZxzap4DrK14Pbvw==",
   "success": true,
   "projectFilePath": "C:\\Users\\vinic\\source\\repos\\FilmProject\\FilmProject\\FilmProject.csproj",
   "expectedPackageFiles": [
@@ -51,7 +51,9 @@
     "C:\\Users\\vinic\\.nuget\\packages\\microsoft.netcore.targets\\1.1.0\\microsoft.netcore.targets.1.1.0.nupkg.sha512",
     "C:\\Users\\vinic\\.nuget\\packages\\microsoft.openapi\\1.2.3\\microsoft.openapi.1.2.3.nupkg.sha512",
     "C:\\Users\\vinic\\.nuget\\packages\\microsoft.win32.registry\\4.5.0\\microsoft.win32.registry.4.5.0.nupkg.sha512",
+    "C:\\Users\\vinic\\.nuget\\packages\\mysqlconnector\\2.0.0\\mysqlconnector.2.0.0.nupkg.sha512",
     "C:\\Users\\vinic\\.nuget\\packages\\newtonsoft.json\\13.0.3\\newtonsoft.json.13.0.3.nupkg.sha512",
+    "C:\\Users\\vinic\\.nuget\\packages\\pomelo.entityframeworkcore.mysql\\6.0.0\\pomelo.entityframeworkcore.mysql.6.0.0.nupkg.sha512",
     "C:\\Users\\vinic\\.nuget\\packages\\runtime.debian.8-x64.runtime.native.system.security.cryptography.openssl\\4.3.2\\runtime.debian.8-x64.runtime.native.system.security.cryptography.openssl.4.3.2.nupkg.sha512",
     "C:\\Users\\vinic\\.nuget\\packages\\runtime.fedora.23-x64.runtime.native.system.security.cryptography.openssl\\4.3.2\\runtime.fedora.23-x64.runtime.native.system.security.cryptography.openssl.4.3.2.nupkg.sha512",
     "C:\\Users\\vinic\\.nuget\\packages\\runtime.fedora.24-x64.runtime.native.system.security.cryptography.openssl\\4.3.2\\runtime.fedora.24-x64.runtime.native.system.security.cryptography.openssl.4.3.2.nupkg.sha512",

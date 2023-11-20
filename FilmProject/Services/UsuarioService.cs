@@ -81,7 +81,6 @@ namespace FilmProject.Services
             {
                 var usuarios = await _dbContext.UsuarioModel
                                .AsNoTracking()
-                               .Where(x => x.dataExclusao == null)
                                .Select(l => new UsuarioResponse
                                {
                                    Id = l.Id,
@@ -104,7 +103,7 @@ namespace FilmProject.Services
         {
             var verificaExistencia = await _dbContext.UsuarioModel
                                     .AsNoTracking()
-                                    .Where(x => x.dataExclusao == null && x.Id == Id)
+                                    .Where(x => x.Id == Id)
                                     .FirstOrDefaultAsync();
 
             if (verificaExistencia is not null)
