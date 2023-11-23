@@ -1,12 +1,13 @@
-# Ignorar arquivos temporários
+# Ignorar arquivos temporï¿½rios
 *.tmp
 
-# Ignorar pastas específicas
+# Ignorar pastas especï¿½ficas
 bin/
 obj/
 
-# Ignorar arquivos de configuração local
+# Ignorar arquivos de configuraï¿½ï¿½o local
 appsettings.json
+appsettings.Development.json
 
 # Visual Studio Code
 .vscode/
