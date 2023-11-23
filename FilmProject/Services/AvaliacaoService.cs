@@ -1,6 +1,7 @@
 ﻿using FilmProject.DTO.AvaliacaoDTO;
 using FilmProject.Models;
 using FilmProject.Models.Avaliacao;
+using Microsoft.AspNetCore.Mvc.Formatters;
 using Microsoft.EntityFrameworkCore;
 
 namespace FilmProject.Services
@@ -15,18 +16,7 @@ namespace FilmProject.Services
             _context = context;
         }
         #endregion
-
-        public List<TiposAvaliacaoModel> listarTipos()
-        {
-            var teste = _context.TiposAvaliacaoModel.AsNoTracking()
-                        .Select(item => new TiposAvaliacaoModel
-                        {
-                            noAvaliacao = item.noAvaliacao
-                        }).ToList();
-
-            return teste;
-        }
-
+               
         public async Task<bool> GravarAvaliacaoUsuario(AvaliacaoUsuarioRequest avaliacaoUsuario)
         {
             bool registrado = false;
@@ -55,6 +45,20 @@ namespace FilmProject.Services
                 throw new DbUpdateException($"Erro - {dbEx}", dbEx);
             }
             return registrado;
+        }
+
+        public async Task<List<MediaAvaliacaoResponse>> GerarMediaAvaliacoesPorFilme()
+        {
+            var listaAvaliacao = await _context.AvaliacaoModel
+                                 .AsNoTracking()
+                                 .GroupBy(a => a.FilmeId)
+                                 .Select(item => new MediaAvaliacaoResponse
+                                 {
+                                     FilmeId = item.Key,
+                                     Avaliacao = item.Average(a => a.TipoAvaliacaoId)
+                                 }).ToListAsync();
+
+            return listaAvaliacao;
         }
 
         public async Task<List<TiposAvaliacaoResponse>> ListarTiposAvaliacao()

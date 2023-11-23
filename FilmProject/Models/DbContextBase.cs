@@ -1,4 +1,5 @@
 ﻿using FilmProject.Models.Avaliacao;
+using FilmProject.Models.Filmes;
 using FilmProject.Models.Mappings;
 using Microsoft.EntityFrameworkCore;
 
@@ -12,15 +13,16 @@ namespace FilmProject.Models
         public virtual DbSet<UsuarioModel> UsuarioModel { get; set; }
         public virtual DbSet<TiposAvaliacaoModel> TiposAvaliacaoModel { get; set; }
         public virtual DbSet<AvaliacaoModel> AvaliacaoModel { get; set; }
+        public virtual DbSet<FilmeModel> FilmeModel { get; set; }
 
-        protected override void OnModelCreating(ModelBuilder modelBuilder)
-        {
+        //protected override void OnModelCreating(ModelBuilder modelBuilder)
+        //{
 
-            modelBuilder.ApplyConfiguration(new UsuarioMap());
-            modelBuilder.ApplyConfiguration(new FilmesMap());
-            modelBuilder.ApplyConfiguration(new GeneroMap());
-            modelBuilder.ApplyConfiguration(new AvaliacaoMap());
-            modelBuilder.ApplyConfiguration(new TipoAvaliacaoMap());
-        }
+        //    modelBuilder.ApplyConfiguration(new UsuarioMap());
+        //    modelBuilder.ApplyConfiguration(new FilmesMap());
+        //    modelBuilder.ApplyConfiguration(new GeneroMap());
+        //    modelBuilder.ApplyConfiguration(new AvaliacaoMap());
+        //    modelBuilder.ApplyConfiguration(new TipoAvaliacaoMap());
+        //}
     }
 }
